@@ -21,7 +21,7 @@
 , : ; ...
 ```
 
-`&T` 在类型位置是 RC；`&x` 在表达式位置是取址，得到 `*T`。`&Type{...}` 仅当 `Type` 是 `struct T : Ref` 时合法，得到 `&Type`。`func Class.Func` 的 `.` 是方法声明，不是字段。类型名单独作表达式时类型为 `type`；`StructName.Field`（右侧为字段）类型为 `StructField`。
+`&T` 在类型位置是 RC；`&x` 在表达式位置是取址，得到 `*T`。`&Type{...}` 仅当 `Type` 是 `struct T : Ref` 时合法，得到 `&Type`。`func Class.Func` 的 `.` 是方法声明，不是字段。类型名单独作表达式时类型为 `Type`；`StructName.Field`（右侧为字段）类型为 `StructField`。
 
 ```
 package demo
@@ -33,7 +33,7 @@ func f() {
     p := Point{x: 1}
     q := &p              // *Point
     n := &Node{v: 1}     // &Node
-    var t type = Point
+    var t Type = Point
     var m StructField = Point.x
 }
 ```
