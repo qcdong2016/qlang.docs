@@ -21,7 +21,7 @@
 , : ; ...
 ```
 
-`&T` 在类型位置是 RC。`&Type{...}` 仅当 `Type` 是 `struct T : Ref` 时合法，得到 `&Type`。`func Class.Func` 的 `.` 是方法声明，不是字段。类型名单独作表达式时类型为 `Type`；`StructName.Field`（右侧为字段）类型为 `StructField`。无 `*T` 裸指针类型。
+`struct T : Ref` 的类型名仍是 `T`，无 `&` 前缀。`func Class.Func` 的 `.` 是方法声明，不是字段。类型名单独作表达式时类型为 `Type`；`StructName.Field`（右侧为字段）类型为 `StructField`。
 
 ```
 package demo
@@ -31,7 +31,7 @@ struct Node : Ref { v int };
 
 func f() {
     p := Point{x: 1}
-    n := &Node{v: 1}
+    n := Node{v: 1}
     var t Type = Point
     var m StructField = Point.x
     _ = p.x
